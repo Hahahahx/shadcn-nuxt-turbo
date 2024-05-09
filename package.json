@@ -1,0 +1,30 @@
+{
+  "name": "turborepo-nuxt-boilerplate",
+  "version": "0.0.5",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=v18.16.0"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "generate": "turbo run generate",
+    "dev": "turbo run dev --parallel",
+    "dev:web": "turbo run dev --filter=@myturborepo/web",
+    "build:web": "turbo run build --filter=@myturborepo/web",
+    "generate:web": "turbo run generate --filter=@myturborepo/web",
+    "preview:web": "turbo run preview --filter=@myturborepo/web",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "test": "turbo run test"
+  },
+  "devDependencies": {
+    "@myturborepo/eslint-config-custom": "workspace:*",
+    "@release-it/conventional-changelog": "^5.1.1",
+    "release-it": "^15.10.3",
+    "turbo": "latest"
+  }
+}
