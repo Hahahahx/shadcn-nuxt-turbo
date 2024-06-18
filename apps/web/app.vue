@@ -1,17 +1,28 @@
 <script setup lang="ts">
-const md = `
-::alert
-Hello MDC
-::
-`
+useHead({
+  title: 'NuxTya',
+  meta: [
+    {
+      name: 'NuxTya | Nuxt 3 Starter Template',
+      content:
+        'A Nuxt 3 starter template with TypeScript, Tailwind CSS, Shadcn-vue and Pinia.',
+    },
+  ],
+  bodyAttrs: {
+    class: 'nuxt-tya',
+  },
+  link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }],
+})
 </script>
 
 <template>
   <div>
-    <Button class="">
-      test
-    </Button>
-    <MDC :value="md" tag="article" />
-    <ContentDoc path="/about" />
+    <NuxtLoadingIndicator />
+
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+
+    <Sonner />
   </div>
 </template>

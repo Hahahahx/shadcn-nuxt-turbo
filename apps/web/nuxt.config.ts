@@ -42,16 +42,27 @@ export default defineNuxtConfig({
     }],
   },
 
-  components: [{
-    path: '~/components/common',
+  components: [
+    {
+      path: '~/components',
     // pathPrefix: false
-  }],
+    },
+    {
+      path: '~/components/common',
+    // pathPrefix: false
+    },
+  ],
   pinia: {
     storesDirs: ['composables/stores'],
   },
   colorMode: {
     classSuffix: '',
     preference: 'dark',
+  },
+  content: {
+    api: {
+      baseURL: '/content_api',
+    },
   },
   nitro: {
     devProxy: {

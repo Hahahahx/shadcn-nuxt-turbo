@@ -7,22 +7,39 @@
     "test": "vitest run --coverage"
   },
   "dependencies": {
+    "@iconify-json/carbon": "^1.1.21",
+    "@iconify-json/heroicons": "^1.1.20",
+    "@iconify-json/radix-icons": "^1.1.14",
+    "@iconify-json/simple-icons": "^1.1.92",
+    "@iconify-json/solar": "^1.1.9",
+    "@iconify-json/twemoji": "^1.1.12",
+    "@iconify/vue": "^4.1.2",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.13",
+    "@unovis/ts": "^1.4.0",
+    "@unovis/vue": "^1.4.0",
+    "@vee-validate/zod": "^4.12.7",
+    "@vueuse/core": "^10.9.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "embla-carousel": "^8.0.4",
+    "embla-carousel-vue": "^8.0.4",
     "lucide-vue-next": "^0.378.0",
     "radix-vue": "^1.7.4",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwind-scrollbar": "^3.1.0",
+    "tailwindcss-animate": "^1.0.7",
+    "v-calendar": "^3.1.2",
+    "vaul-vue": "^0.1.2",
+    "vee-validate": "^4.12.7",
+    "vue-sonner": "^1.1.2",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@histoire/plugin-vue": "^0.16.1",
     "@myturborepo/tsconfig": "workspace:*",
-    "@vitejs/plugin-vue": "^4.2.3",
-    "@vitest/coverage-c8": "^0.31.1",
-    "@vue/test-utils": "^2.3.2",
-    "c8": "^7.14.0",
-    "histoire": "^0.16.1",
-    "jsdom": "^20.0.3",
-    "vitest": "^0.31.1"
+    "@types/node": "^20.12.11",
+    "@vitejs/plugin-vue": "^4.2.3"
   }
 }

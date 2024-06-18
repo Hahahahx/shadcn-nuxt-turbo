@@ -1,4 +1,9 @@
 const animate = require('tailwindcss-animate')
+const scrollbar = require('tailwind-scrollbar')({ nocompatible: true })
+const typography = require('@tailwindcss/typography')
+const forms = require('@tailwindcss/forms')
+const aspectRatio = require('@tailwindcss/aspect-ratio')
+const containerQueries = require('@tailwindcss/container-queries')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -7,6 +12,7 @@ module.exports = {
   prefix: '',
 
   content: [
+    '../../packages/ui/{src,components}/**/*.{ts,tsx,vue}',
     './pages/**/*.{ts,tsx,vue}',
     './components/**/*.{ts,tsx,vue}',
     './app/**/*.{ts,tsx,vue}',
@@ -89,5 +95,5 @@ module.exports = {
       },
     },
   },
-  plugins: [animate],
+  plugins: [animate, scrollbar, typography, forms, aspectRatio, containerQueries],
 }
