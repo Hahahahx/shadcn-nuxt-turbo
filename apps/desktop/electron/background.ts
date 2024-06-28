@@ -1,19 +1,14 @@
+/* eslint-disable max-statements-per-line */
+/* eslint-disable turbo/no-undeclared-env-vars */
 import path from 'node:path'
 import type { BrowserWindow } from 'electron'
 import { app, ipcMain } from 'electron'
-import { MinioService, WindowService } from './service'
+import serve from 'electron-serve'
 import { createWindow } from './helpers'
+import { MinioService, WindowService } from './service'
 
-// The built directory structure
-//
-// ├─┬ dist-electron
-// │ ├─┬ main
-// │ │ └── index.js
-// │ ├─┬ preload
-// │ │ └── index.js
-// │ ├─┬ renderer
-// │ │ └── index.html
 process.env.APP_ROOT = path.join(__dirname, '..')
+
 const isProd = process.env.VITE_DEV_SERVER_URL === undefined
 
 export const MAIN_DIST = path.join(process.env.APP_ROOT, 'dist-electron')
@@ -22,6 +17,11 @@ export const RENDERER_DIST = path.join(process.env.APP_ROOT, '.output/public')
 process.env.VITE_PUBLIC = process.env.VITE_DEV_SERVER_URL
   ? path.join(process.env.APP_ROOT, 'public')
   : RENDERER_DIST
+
+if (isProd)
+  serve({ directory: 'app' })
+else
+  app.setPath('userData', `${app.getPath('userData')} (development)`)
 
 let windowIsReady = false
 let mainWindow: BrowserWindow
@@ -54,8 +54,8 @@ async function getMainWindowWhenReady() {
   })
 
   // 初始化Minio
-  // new MinioService().addWindow(mainWindow)
-  // new WindowService().addWindow(mainWindow)
+  new MinioService().addWindow(mainWindow)
+  new WindowService().addWindow(mainWindow)
 
   // // 1. 窗口 最小化
   // ipcMain.on('window-min', () => { // 收到渲染进程的窗口最小化操作的通知，并调用窗口最小化函数，执行该操作
@@ -92,7 +92,7 @@ app.on('window-all-closed', () => {
   app.quit()
 })
 
-function checkLauncherUrl(getMainWindow: any) {
+function checkLauncherUrl(getMainWindow) {
   if (process.platform === 'darwin') {
     app.on('open-url', async (_event, url) => {
       const mainWindow = await getMainWindow()
@@ -126,9 +126,9 @@ function checkLauncherUrl(getMainWindow: any) {
       arg.startsWith(`${'your-custom-protocol-scheme'}://`),
     )
     url
-    && getMainWindow().then((mainWindow: any) =>
-      mainWindow.webContents.send('launcher-url', url),
-    )
+      && getMainWindow().then(mainWindow =>
+        mainWindow.webContents.send('launcher-url', url),
+      )
   }
 
   return true

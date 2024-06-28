@@ -6,6 +6,7 @@
     "apps/*",
     "packages/*"
   ],
+  "packageManager": "pnpm@8.9.0",
   "engines": {
     "node": ">=v18.16.0"
   },
@@ -19,14 +20,16 @@
     "build:desktop": "turbo run build --filter=@myturborepo/desktop",
     "generate:web": "turbo run generate --filter=@myturborepo/web",
     "preview:web": "turbo run preview --filter=@myturborepo/web",
-    "lint": "turbo run lint",
-    "lint:fix": "turbo run lint:fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "test": "turbo run test"
   },
   "devDependencies": {
-    "@myturborepo/eslint-config-custom": "workspace:*",
+    "@antfu/eslint-config": "^2.18.1",
     "@release-it/conventional-changelog": "^5.1.1",
+    "eslint": "^9.5.0",
     "release-it": "^15.10.3",
-    "turbo": "latest"
+    "turbo": "2.0.5",
+    "typescript": "^5.4.5"
   }
 }

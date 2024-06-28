@@ -19,6 +19,10 @@ useHead({
   <div>
     <NuxtLoadingIndicator />
 
+
+
+
+    
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

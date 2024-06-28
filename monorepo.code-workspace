@@ -1,0 +1,20 @@
+{
+  "folders": [
+    {
+      "name": "ROOT",
+      "path": "."
+    },
+    {
+      "path": "apps/web"
+    }, 
+    {
+      "path": "apps/desktop"
+    }, 
+    {
+      "path": "packages/ui"
+    }, 
+  ],
+  "settings": {
+    "svg.preview.background": "editor"
+  }
+}
